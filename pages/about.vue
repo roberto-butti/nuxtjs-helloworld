@@ -12,7 +12,7 @@
 var i=0;
 export default {
   asyncData ({ req }) {
-  	var retVal={ name: 'worlds' };
+  	var retVal={ name: 'world' };
   	retVal["datex"]="a"+Date.now();
   	retVal["inc"]=i++;
   	retVal["myreq"]= req ? "SERVER" : "none";
