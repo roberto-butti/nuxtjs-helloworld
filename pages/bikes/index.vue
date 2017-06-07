@@ -21,10 +21,20 @@ export default {
     .then((res) => {
       //console.log(res);
       //return { bikes: res.data.networks.slice(0, 10) 
+        var a = {};
+        var country="";
         for (var i = res.data.networks.length - 1; i >= 0; i--) {
           var n = res.data.networks[i];
-          console.log(n.location.country);
+
+          country = n.location.country;
+          if (a[country] !== undefined) {
+            a[country]++;
+          } else {
+            a[country] = 1;
+          }
+
         }
+        console.log(a);
         return { bikes: res.data.networks }
     })
     .catch((e) => {
