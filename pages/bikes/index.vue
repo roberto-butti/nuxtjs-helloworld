@@ -3,7 +3,7 @@
     <h1>Bikes</h1>
     <ul>
       <li v-for="bike in bikes">
-        <nuxt-link :to="{ name: 'bikes-id', params: { id: bike.id } }">{{ bike.name }}</nuxt-link>
+        <nuxt-link :to="{ name: 'bikes-id', params: { id: bike.id } }">{{ bike.name }} - {{ bike.location.city }} ({{bike.location.country}})</nuxt-link>
       </li>
     </ul>
     <p><nuxt-link to="/">Back to home page</nuxt-link></p>
@@ -19,7 +19,8 @@ export default {
     return axios.get('https://api.citybik.es/v2/networks')
     .then((res) => {
       console.log(res);
-      return { bikes: res.data.networks.slice(0, 10) }
+      //return { bikes: res.data.networks.slice(0, 10) 
+        return { bikes: res.data.networks }
     })
     .catch((e) => {
       console.log(e);

@@ -2,6 +2,9 @@
   <div class="container">
     <h1>BICI :{{ bike.name }}</h1>
     <pre>{{ bike.id }}</pre>
+    <div>{{ bike.location.city }}</div>
+    <div>{{ bike.location.country }}</div>
+    <img :src="gmapurl">
     <p><nuxt-link to="/bikes">Back to the list</nuxt-link></p>
   </div>
 </template>
@@ -17,7 +20,9 @@ export default {
     if (params.id) {
     let { data } = await axios.get('https://api.citybik.es/v2/networks/'+params.id)
     console.log(data);
-    return { bike: data.network }
+    var sgmapurl= "https://maps.googleapis.com/maps/api/staticmap?center="+data.network.location.latitude+","+data.network.location.longitude+"&zoom=16&size=400x400&";
+    console.log(sgmapurl);
+    return { bike: data.network, gmapurl:sgmapurl }
 
     }
     return { bike: {name:'bikename', id:'bikeid'}}
