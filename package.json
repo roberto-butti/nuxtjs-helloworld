@@ -10,7 +10,7 @@
     "axios": "^0.16.2",
     "bulma": "^0.4.2",
     "node-sass": "^4.5.3",
-    "nuxt": "latest",
+    "nuxt": "^1.0.0-alpha.4",
     "sass-loader": "^6.0.5"
   }
 }

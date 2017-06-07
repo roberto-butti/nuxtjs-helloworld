@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Bikes</h1>
+    <p><nuxt-link to="/">Back to home page</nuxt-link>
     <ul>
       <li v-for="bike in bikes">
         <nuxt-link :to="{ name: 'bikes-id', params: { id: bike.id } }">{{ bike.name }} - {{ bike.location.city }} ({{bike.location.country}})</nuxt-link>
@@ -18,8 +19,12 @@ export default {
     // We can return a Promise instead of calling the callback
     return axios.get('https://api.citybik.es/v2/networks')
     .then((res) => {
-      console.log(res);
+      //console.log(res);
       //return { bikes: res.data.networks.slice(0, 10) 
+        for (var i = res.data.networks.length - 1; i >= 0; i--) {
+          var n = res.data.networks[i];
+          console.log(n.location.country);
+        }
         return { bikes: res.data.networks }
     })
     .catch((e) => {
