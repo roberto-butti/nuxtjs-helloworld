@@ -4,6 +4,7 @@
     <p><nuxt-link to="/about" class="button is-medium is-primary hvr-float-shadow">About page</nuxt-link></p>
     
     <nuxt-link to="/call">Call page</nuxt-link>
+    <nuxt-link to="/bikes">bikes</nuxt-link>
   </div>
 
 </template>
