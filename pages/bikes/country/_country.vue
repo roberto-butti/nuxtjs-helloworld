@@ -10,6 +10,7 @@
     </ul>
     <p><nuxt-link to="/">Back to home page</nuxt-link></p>
   </div>
+
 </template>
 
 <script>
@@ -22,7 +23,12 @@ export default {
   },
  
   asyncData ({ params, error }) {
-    // We can return a Promise instead of calling the callback
+    console.log(params);
+    var country_find = "IT";
+    if (params.country) {
+      country_find = params.country;
+    }
+
     return axios.get('https://api.citybik.es/v2/networks')
     .then((res) => {
       //console.log(res);
@@ -40,7 +46,7 @@ export default {
           }
 
         }
-        var country_find="IT";
+        //var country_find="IT";
         var countries_found=[];
         for (var i = res.data.networks.length - 1; i >= 0; i--) {
           var n = res.data.networks[i];
@@ -69,4 +75,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

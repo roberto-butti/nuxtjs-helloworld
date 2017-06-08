@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div id="mycomponent" class="container">
+    <mymenu></mymenu>
     <h1>BICI :{{ bike.name }}</h1>
     <pre>{{ bike.id }}</pre>
     <div>{{ bike.location.city }}</div>
@@ -11,8 +12,12 @@
 
 <script>
 import axios from 'axios'
-
+import mymenu from '~/components/mymenu.vue'
 export default {
+  layout: 'app',
+  components: {
+    mymenu
+  },
   async asyncData ({ params }) {
     // We can use async/await ES6 feature
     console.log("aaa");
@@ -37,28 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-  padding-top: 100px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-ul li {
-  border: 1px #ddd solid;
-  padding: 20px;
-  text-align: left;
-}
-ul li a {
-  color: gray;
-}
-p {
-  font-size: 20px;
-}
-a {
-  color: #41B883;
-}
+
 </style>
