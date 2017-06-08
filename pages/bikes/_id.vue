@@ -19,13 +19,11 @@ export default {
     mymenu
   },
   async asyncData ({ params }) {
-    // We can use async/await ES6 feature
-    console.log("aaa");
     console.log(params);
     if (params.id) {
     let { data } = await axios.get('https://api.citybik.es/v2/networks/'+params.id)
     console.log(data);
-    var sgmapurl= "https://maps.googleapis.com/maps/api/staticmap?center="+data.network.location.latitude+","+data.network.location.longitude+"&zoom=16&size=400x400&";
+    var sgmapurl= "https://maps.googleapis.com/maps/api/staticmap?center="+data.network.location.latitude+","+data.network.location.longitude+"&zoom=18&size=800x400&";
     console.log(sgmapurl);
     return { bike: data.network, gmapurl:sgmapurl }
 
