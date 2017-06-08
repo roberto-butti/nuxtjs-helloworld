@@ -34,8 +34,23 @@ export default {
           }
 
         }
-        console.log(a);
-        return { bikes: res.data.networks }
+        var country_find="IT";
+        var countries_found=[];
+        for (var i = res.data.networks.length - 1; i >= 0; i--) {
+          var n = res.data.networks[i];
+
+          country = n.location.country;
+          if (country == country_find) {
+            countries_found.push(n);
+          } else {
+            
+          }
+
+        }
+
+        console.log(countries_found);
+        return { bikes: countries_found };
+        //return { bikes: res.data.networks }
     })
     .catch((e) => {
       console.log(e);

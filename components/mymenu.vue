@@ -4,7 +4,7 @@
   <div class="container">
     <div class="nav-left">
       <a class="nav-item">
-        <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+      <img src="~assets/roadbike.svg" alt="roadbike logo">
       </a>
       <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
       <a class="nav-item is-tab is-hidden-mobile">Features</a>
@@ -34,7 +34,9 @@
 
 </template>
 <script>
-	module.exports = {
+	
+	export default {
+		name: 'mymenu',
 		data: function() {
 			return { greeting:'Hello'}
 		}
