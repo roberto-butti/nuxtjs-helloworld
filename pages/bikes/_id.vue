@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
 import axios from 'axios'
 import mymenu from '~/components/mymenu.vue'
 
